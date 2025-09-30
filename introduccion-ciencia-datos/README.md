@@ -51,5 +51,5 @@ it stops being just another branch and becomes a production-level version contro
 Different teams (developers, QA testers, and others) work on different branches, and this structure prevents instability in production.  
 Even though I already knew in theory that teams don’t work directly on production, learning the actual branching logic and workflow made it much clearer.  
 
-It’s not just about preventing errors — it’s about building a safe, collaborative workflow** that mirrors real-world software development.
+It’s not just about preventing errors — it’s about building a safe, collaborative workflow that mirrors real-world software development.
 
