@@ -8,7 +8,7 @@ sep 28/2025
 # Learning log: my first steps with Git and GitHub
 
 Over the past two days, I’ve been learning how to work with Git and GitHub. I’m not an expert by any means, but I don’t want my learning log to become a list of commands or functions that I could easily look up in documentation or ask ChatGPT about.
-
+ 
 Instead, I want to document the understanding process — how I’m learning to use these tools. I’ve been following Mouredev’s course on YouTube and applying what I learn through small exercises.
 
 It’s been really interesting to see how Git and GitHub will help me manage the different versions of my future projects during my master’s program.
@@ -27,4 +27,29 @@ That single exercise put everything I learned into practice. I plan to keep prac
 
 Finally, I want to say I find the GitHub community and its core idea beautiful — the collaborative spirit, the structure it follows: contributing, requesting permission to modify, reviewing, approving or rejecting changes, and integrating code. It’s an elegant representation of how teamwork should work.
 
+-- 
+
+## September 28, 2025 – 17:34  
+**Update:**
+
+Today I questioned whether I should continue using the terminal or switch to visual tools like GitKraken, since they’re commonly used in professional environments.  
+After reflecting, I decided to keep using the terminal for now, because even though I already have a mental map of how Git and GitHub work, this understanding is not yet fully settled after only two days.  
+
+I want to build strong mental foundations and understand Git and GitHub deeply before moving to visual tools.  
+It’s like learning to drive a manual car before an automatic one — not because one is better, but because mastering the fundamentals helps in the long run.  
+So I’ll keep working from the terminal for a few more days or weeks, until I feel comfortable enough to switch naturally to a visual client if needed.
+
+---
+
+# September 29, 2025 – 17:31  
+
+I’ve just finished the course — and I loved it.  
+
+One of the most important takeaways from this last part was understanding how the main branch evolves:  
+it stops being just another branch and becomes a production-level version control point**, while the developer branch acts as the new “main” where all feature branches converge.
+
+Different teams (developers, QA testers, and others) work on different branches, and this structure prevents instability in production.  
+Even though I already knew in theory that teams don’t work directly on production, learning the actual branching logic and workflow made it much clearer.  
+
+It’s not just about preventing errors — it’s about building a safe, collaborative workflow** that mirrors real-world software development.
 
