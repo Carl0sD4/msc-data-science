@@ -46,7 +46,7 @@ So I’ll keep working from the terminal for a few more days or weeks, until I f
 I’ve just finished the course — and I loved it.  
 
 One of the most important takeaways from this last part was understanding how the main branch evolves:  
-it stops being just another branch and becomes a production-level version control point**, while the developer branch acts as the new “main” where all feature branches converge.
+it stops being just another branch and becomes a production-level version control point, while the developer branch acts as the new “main” where all feature branches converge.
 
 Different teams (developers, QA testers, and others) work on different branches, and this structure prevents instability in production.  
 Even though I already knew in theory that teams don’t work directly on production, learning the actual branching logic and workflow made it much clearer.  
