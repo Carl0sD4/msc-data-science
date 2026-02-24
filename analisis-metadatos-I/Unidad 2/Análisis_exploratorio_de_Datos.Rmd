@@ -1,0 +1,82 @@
+---
+title: 'Actividad 2: Análisis exploratorio de Datos'
+author: "Carlos Campo Urzola"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+
+1) Cargue y adjunte el conjunto de datos de central.park (UsingR). La
+variable WX contiene una lista de números que representan el mal tiempo
+(por ejemplo: 1 para la niebla, 3 para truenos, 8 para humo o neblina). NA se
+utiliza para cuando no se ha producido ninguno de los tipos, haga una tabla
+de los datos, luego haga una tabla adicional con el argumento
+exclude=FALSE. ¿Por qué es mejor la segunda tabla?
+
+```{r}
+#cargar libreria
+library(UsingR)
+
+#cargar dataset
+
+data(central.park)
+attach(central.park)
+
+#crear tabla
+table(WX)
+
+#
+table(WX, exclude=FALSE)
+
+```
+la primera tabla que se hizo no tenia un codigo para mal tiempo, lo que estaba dejando por fuera 10 registros, al usar exclude=False se añaden esos registros a la table nueva y se tiene una vision apropiada de los datos con la que se pueden tomar desiciones mas acertadas 
+
+
+
+
+2) Realice un gráfico de puntos de la variable mpg en el conjunto de datos
+mtcars. especifique el argumento labels= usando el comando
+rownames(mtcars), el cual retorna los nombres de cada uno de las filas de un
+marco de datos.
+
+
+```{r}
+#cargar el dataset 
+data(mtcars)
+
+#Generar grafico de puntos
+dotchart(mtcars$mpg, labels = rownames(mtcars), cex = 0.6)
+
+```
+
+
+
+3) El conjunto de datos npdb (UsingR) contiene información sobre premios
+de malas prácticas en los Estados Unidos. Adjunta el conjunto de datos y haz
+una tabla de la variable state. ¿Cual estado tuvo la mayoría de premios? (Es
+útil usar sort( ) en tu tabla).
+
+```{r}
+#Cargar dataset 
+data(npdb)
+attach(npdb)
+
+#crear la tabla con variable state
+tabla_estados <- table(state)
+
+# sort by decreacing 
+sort(tabla_estados, decreasing = TRUE)
+
+```
+El estado que tuvo mas premios fue California con 1566
+
+
+
+
+
+
+
+
+
+
+

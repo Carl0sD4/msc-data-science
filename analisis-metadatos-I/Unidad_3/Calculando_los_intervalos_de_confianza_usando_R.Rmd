@@ -1,0 +1,90 @@
+---
+title: "Calculando los intervalos de confianza usando R"
+author: "Carlos Campo Urzola"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+1)Encuentre intervalos de confianza de 80% y 90% para una encuesta
+con n = 100 y phat = 0.45.
+
+Solucion:
+
+```{r}
+#intervalo 80%
+prop.test(x = 45, n = 100, conf.level = 0.80)
+
+#intervalo 90%
+prop.test(x = 45, n = 100, conf.level = 0.90)
+
+```
+
+
+
+
+
+
+2) n estudiante desea encontrar la proporción de personas zurdas. Ella
+encuesta 100 compañeros de estudios y descubre que sólo 5 son zurdos.
+Tiene un 95% de intervalo de confianza que contiene el valor de p = 1/10?.
+
+Solucion 
+```{r}
+#intervalo de confianza del 95%
+prop.test(x = 5, n = 100, conf.level = 0.95)
+```
+
+El intervalo de confianza es de 95% y va desde 0.0185 a 0.1183 y se puede afirmar que el intervalo si contiene este valor dado que p = 1/10 
+
+
+
+3) Un artículo del New York Times del 9 de octubre de 2003 contiene esta
+explicación sobre una encuesta de salida para una elección revocatoria de
+California:
+En teoría, en 19 casos de 20, los resultados de dichas encuestas
+deberían diferir en no más o menos dos puntos porcentuales de lo
+que se habría obtenido buscando entrevistar a todos los que votaron
+en la elección de revocatoria.
+Suponga una muestra aleatoria simple y phat = 0.54. ¿Qué tan grande fue n?
+
+Solucion:
+
+
+```{r}
+#definir variablkes
+p_hat <- 0.54
+E <- 0.02
+
+#calcular z para 95% de confianza.
+Z <- qnorm(0.975)
+
+#aplicar formula 
+n <- (Z^2 * p_hat * (1 - p_hat)) / E^2
+
+#redondear
+ceiling(n)
+```
+
+
+
+4)Un antiguo comercial afirmaba que "Cuatro de cada cinco dentistas
+encuestados recomendarían Trident para sus pacientes que mascan chicle".
+Suponga que los resultados se basaron en una muestra aleatoria de la
+población de todos los dentistas. Encuentre un intervalo de confianza del
+90% para la verdadera proporción si el tamaño de la muestra fuera n = 5.
+Repita con n = 100 y n = 1000.
+
+Solucion:
+
+```{r}
+#n = 5
+prop.test(x = 4, n = 5, conf.level = 0.90)
+
+#n=100
+
+prop.test(x = 80, n = 100, conf.level = 0.90)
+
+#n = 1000
+
+prop.test(x = 800, n = 1000, conf.level = 0.90)
+```

@@ -1,0 +1,46 @@
+---
+title: "Calculando los intervalos de confianza usando R"
+author: "Carlos Campo Urzola"
+date: "`r Sys.Date()`"
+output: word_document
+---
+
+1) El conjunto de datos samhda (UsingR) contiene información sobre el
+consumo de marihuana entre los niños recopilada en el Archivo de datos
+sobre abuso de sustancias y salud mental. La variable marijuana indica si el
+individuo ha probado marihuana alguna vez. Un 1 significa que sí, un 2 no. Si
+antes el 50% de la población objetivo había probado la marihuana, ¿indican
+estos datos un aumento en el consumo de marihuana? Haz una prueba de
+significación de proporciones para decidir.
+
+Solucion
+```{r}
+#cargar lbreria y dataset
+library(UsingR)
+data(samhda)
+
+#filtrar y conteo de datos
+casos_si <- sum(samhda$marijuana == 1, na.rm = TRUE) #suma de individuos que tienen valor 1
+
+#suma el total de respuestas
+total_casos <- sum(samhda$marijuana %in% c(1, 2), na.rm = TRUE)
+
+#ejecutar prueba de hipotesis 
+prop.test(x = casos_si, n = total_casos, p = 0.5, alternative = "greater")
+```
+Al realizar la prueba de porciones, se obtiene que p-value es 1, lo cual es mayor a 0.005. En ese orden de ideas, no hay evidencia estadistica para afirmar que el consumo de marihuana aumentó. Por el contrariom, la muestra indica que la proporcion actual esde 22.4%. 
+
+
+
+2) Se prueba una nueva terapia farmacológica. De 50 pacientes en el
+estudio, 40 no tuvieron recurrencia de su enfermedad después de 18 meses.
+Sin tratamiento farmacológico, el porcentaje esperado de no recurrencia
+habría sido del 75%. ¿Apoyan los datos la hipótesis de que este porcentaje
+ha aumentado? ¿Cuál es el valor p?
+
+Solucion
+
+```{r}
+prop.test(x = 40, n = 50, p = 0.75, alternative = "greater")
+```
+El valor de P-value es de 0.2568 y dado que es mayor al nivel de significancia de 0.05, los datos no apoyan estadisticamente la hipotesis.

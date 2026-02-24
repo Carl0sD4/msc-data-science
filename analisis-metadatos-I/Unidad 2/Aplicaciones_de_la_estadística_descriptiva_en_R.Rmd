@@ -1,0 +1,76 @@
+---
+title: "Aplicaciones de la estadística descriptiva en R"
+author: "Carlos Campo Urzola"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+1)  Lea este gráfico de tallo y hoja. Primero encuentre la mediana a mano
+(calcule a lápiz y papel). Entonces introduzca los datos y encuentre la
+mediana usando median().
+El punto decimal es de 1 dígito a la derecha de |
+8 | 028
+9 | 115578
+10 | 1669
+11 | 01
+
+
+Solucion 
+
+#formula para encontrar la mediana:
+
+(15 + 1) / 2 = 8
+
+#busca el puesto numero 8 en el conjunto de datos:
+
+80
+
+82
+
+88
+
+91
+
+91
+
+95
+
+95
+
+97
+
+La mediana es 97. 
+
+Buscamos la mediana usando mendian() usando R 
+
+```{r}
+#crear datos del grafico de T&H
+datos_tallo <- c(80, 82, 88, 91, 91, 95, 95, 97, 98, 101, 106, 106, 109, 110, 111)
+
+#encontrar la mediana
+median(datos_tallo)
+```
+
+
+
+
+2) El conjunto de datos pi2000 (UsingR) contiene los primeros 2000 dígitos
+de pi. ¿Cuál es el porcentaje de dígitos que son menores o iguales a 3?
+¿Cuál es el porcentaje de dígitos que son mayores o iguales a 5?
+
+Solucion
+
+```{r}
+#cargar libreria y dataset para el ejercicio
+library(UsingR)
+data(pi2000)
+
+#%. de digitos <= a 3
+(sum(pi2000 <= 3) / length(pi2000)) * 100
+
+#% de digitos >= 5 
+(sum(pi2000 >= 5) / length(pi2000)) * 100
+
+```
+
+El porcentaje de didigitos que son mayores o iguales a 5 es 50.75%

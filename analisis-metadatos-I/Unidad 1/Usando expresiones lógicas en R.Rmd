@@ -1,0 +1,172 @@
+---
+title: "Usando_expresiones_logicas_en_R"
+author: "Carlos Campo Urzola"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+1) Usted realiza un seguimiento de sus tiempos de viaje durante dos
+semanas (10 días), registrando los siguientes tiempos en minutos:
+Introduzca estos datos en R. Use la función max( ) para encontrar el tiempo
+mayor, la función mean( ) para encontrar el valor medio y la función min( )
+para encontrar el mínimo. Ops, el tiempo 24 está errado, en lugar de este, el
+valor correcto es el 18. ¿Cómo puede corregir esto? una vez corregido
+encuentre el nuevo valor medio. ¿Cuántas veces su viaje fue de 20 minutos o
+más? ¿Qué porcentajes de sus viajes duran menos de 18 minutos?
+
+Solucion
+```{r}
+#crear el vector
+viajes_ej_1 <- c(17, 16, 20, 24, 22, 15, 21, 15, 17, 22)
+```
+```{r}
+#sacar los estadisticos
+max(viajes_ej_1)
+min(viajes_ej_1)
+mean(viajes_ej_1)
+```
+```{r}
+#arreglar el viaje 24 por 18
+viajes_ej_1[viajes_ej_1 == 24] <- 18
+viajes_ej_1
+```
+
+```{r}
+#Conteo de viajes mayores o iguales a 20
+sum(viajes_ej_1 >= 20)
+
+#porcentaje menores a 18 
+mean(viajes_ej_1 < 18) * 100
+```
+
+2. (1.0) Define “x” y “y” con:
+Ingrese los siguientes datos dentro de la variable z con c( ). Use length( )
+para revisar su longitud.
+
+```{r}
+#crear las variables 
+x <- c(1, 3, 5, 7, 9)
+y <- c(2, 3, 5, 7, 11, 13)
+length(x)
+length(y)
+```
+
+3.  (1.0) Ecuente los resultados de los siguientes comandos en R
+a. x + 1
+b. y*2
+c. length(x) y length(y)
+d. x + y
+e. sum(x > 5) y sum(x[x > 5])
+f. sum(x > 5 | x < 3)
+g. y[3]
+h. y[-3]
+i. y[x] ¿Qué es NA?
+j. y[y >= 7]
+
+```{r}
+#a)
+x + 1
+```
+```{r}
+#b
+y * 2 
+```
+
+```{r}
+#c
+length(x)
+length(y)
+```
+
+```{r}
+#d
+x + y 
+```
+
+```{r}
+#e
+sum(x > 5)
+sum(x[x > 5])
+```
+
+
+```{r}
+#f
+sum(x >5 | x < 3)
+```
+
+```{r}
+#g
+y[3]
+```
+
+```{r}
+#h
+y[-3]
+```
+
+```{r}
+#i
+y[x]
+# esto significa not available y pasa cuando se consulta una posicion que no existe en R
+```
+
+```{r}
+#j
+y[y >=7]
+```
+
+4. (1.5) Dada la matriz cuadrada de orden 3, cuyas filas son los 9 primeros
+números naturales, obtener su inversa, su transpuesta y su diagonal. Obtener
+la suma de elementos de la primera fila y la suma de los elementos de la
+diagonal. Extraer la sub matriz cuya diagonal son los elementos a11 y a22 y
+extraer también la sub matriz cuyos elementos de la diagonal son a11 y a33.
+Finalmente hallar los autovalores y autovectores de la matriz inicial.
+
+
+```{r}
+#crear la matriz 
+
+A <- matrix(1:9, nrow = 3, byrow = TRUE)
+print(A)
+```
+```{r}
+#transpuesta
+t(A)
+```
+
+```{r}
+#diagonal
+diag(A)
+```
+```{r, error=TRUE}
+#inversa 
+solve(A)
+#matriz singular y no invertible 
+```
+```{r}
+#sumar primera fila 
+sum(A[1, ])
+```
+
+```{r}
+#sumar diagonal
+sum(diag(A))
+
+```
+```{r}
+#submatriz con diagonal
+sub_1 <- A[1:2, 1:2]
+sub_1
+```
+```{r}
+#suma diagonal 
+sub_2 <- A[c(1,3), c(1,3)]
+sub_2
+```
+
+```{r}
+#Autovalores y autovectores 
+eigen(A)
+
+```

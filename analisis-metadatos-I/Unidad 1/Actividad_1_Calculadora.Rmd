@@ -1,0 +1,114 @@
+---
+title: "R como calculadora"
+author: "Carlos Campo Urzola"
+date: "2026-02-11"
+output: pdf_document
+---
+
+#1. (0.5) Encuentre los valores numéricos de las siguientes expresiones:
+#Solucion 
+#1) 
+```{r}
+#1
+ej_1_1<- 1 + 2 * (3 + 4)
+ej_1_1
+
+#2) 
+ej_1_2 <- 4^3 + 3^(2 + 1)
+ej_1_2
+
+#3) 
+ej_1_3 <- sqrt((4 + 3 ) * (2 +1))
+ej_1_3
+
+#4) 
+ej_1_4 <- ((1+2) / (3+4))^2
+ej_1_4
+```
+
+#2 (0.5) Reescriba las siguientes expresiones usando los paréntesis para mostrar el orden en el cual las expresiones deben ser evaluadas:
+#Solucion
+
+```{r}
+#Solucion 
+#1)
+ej_2_1 <- (2+3) - 4
+ej_2_1
+
+#2)
+ej_2_2 <- 2 + (3*4)
+ej_2_2
+
+#3)
+ej_2_3 <- (2/3)/4
+ej_2_3
+
+#4)
+ej_2_4 <- 2**(3**4)
+ej_2_4
+```
+
+#3 (1.0) Ingrese los siguientes datos dentro de la variable z con c( ). Use length() para revisarsu longitud
+```{r}
+#Solucion
+ej_3 <- c(2, 3, 5, 7, 11, 13, 17, 19)
+length(ej_3)
+ej_3
+```
+#4(1.0) Considere un conjunto pequeño de datos como (use la vectorización de funciones):
+
+```{r}
+#Solucion
+#a)
+
+ej_4 <- c(2, 5, 4, 10, 8)
+length(ej_4)
+ej_4
+
+#b)
+sqrt(ej_4)
+
+#c)
+ej_4 - 6
+
+#d)
+sqrt(ej_4-9)
+```
+
+#5. (1.0) El precio de venta de los MINI Coopers usados varían de un vendedor a otro. Una lista de clasificado en línea tiene estos valores en miles:
+
+```{r}
+#Solucion
+prices <- c(15.9, 21.4, 19.9, 21.9, 20.0, 16.5, 17.9, 17.5)
+prices 
+
+#a 
+min(prices) 
+max(prices)
+
+#b)
+mean(prices)
+
+#c)
+max(prices) - mean(prices)
+mean(prices) - min(prices)
+```
+
+
+#6 (1.0) Crea las siguientes secuencias:
+
+```{r}
+#Solucion
+#a
+rep("a", 5)
+
+#b 
+seq(from = 1, to = 99, by = 2)
+
+#c
+rep(6:8, each = 3)
+
+#d
+c(1:5, 4:1)
+```
+

@@ -1,0 +1,57 @@
+---
+title: Calculando los intervalos para una estadística no paramétrica de confianza
+  usando R
+author: "Carlos Campo Urzola"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+1) El viajero revisitado: el viajero registra 20 tiempos de viaje para medir su
+tiempo medio de viaje. Los datos tienen una mediana muestral de 24 y se
+resumen en este diagrama de tallo y hojas:
+
+> stem(commutes)
+2 | 1112233444444
+2 | 15569
+3 | 1113
+
+Si los datos son apropiados para t.test( ), úselo para dar un intervalo de
+confianza del 90% para la media. De lo contrario, use wilcox.test( ) (quizás
+después de una transformación) para dar un intervalo de confianza para la
+mediana.
+
+
+Solucion:
+
+```{r}
+#crear el vector con los datos del diagrama de T&H
+commutes <- c(21, 21, 21, 22, 22, 23, 23, 24, 24, 24, 24, 24, 24, 25, 25, 26, 29, 31, 31, 33)
+
+#aplicar la prueba de wilconxon para la mediana
+wilcox.test(commutes, conf.int = TRUE, conf.level = 0.90)
+```
+
+
+
+Se puede observar que los datos no son simetricos, es por ello que es mejor usar estadistica no parametrica aplicado la prueba de Wilconxon.
+Lo anterior nos da como resultado que el intervalo de confianza es de 90% para la mediana del tiempo de viaje (23.0 y 26.5)
+
+
+
+2) El conjunto de datos cabinet (UsingR) contiene información sobre la
+cantidad de dinero que ahorró cada miembro del gabinete del presidente
+Bush debido a la aprobación de una ley de impuestos de 2003. Esto se
+almacena en la variable llamada est.tax.savings. Encuentre un intervalo de
+confianza para la cantidad mediana.
+
+Solucion
+```{r}
+#cargar el dataset 
+library(UsingR)
+data(cabinet)
+
+#calcular intervalos de confianza
+wilcox.test(cabinet$est.tax.savings, conf.int = TRUE)
+```
+
+El intervalo de confianza es del 95% para la cantidad media de dinero ahorrado por miembros del gabinete,y este se encuentra enetre 3460 - 58048
